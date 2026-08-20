@@ -97,18 +97,7 @@ export default function MobilePreview({ content, styling, activeStep, setActiveS
 
             {/* Simulated Host App Background */}
             <div className="relative flex-1 w-full rounded-[30px] bg-gradient-to-br from-zinc-900 via-zinc-900 to-indigo-950/90 overflow-hidden p-3 flex flex-col justify-between">
-              {/* Dummy Host App Top Bar */}
-              <div className="flex items-center justify-between py-1 border-b border-white/5">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-5.5 h-5.5 rounded-full bg-indigo-600 flex items-center justify-center font-bold text-[9px] text-white shadow">
-                    AV
-                  </div>
-                  <span className="text-[10px] font-bold text-zinc-200">App-Versal App</span>
-                </div>
-                <span className="text-[9px] text-indigo-400 bg-indigo-950/80 px-1.5 py-0.2 rounded-full border border-indigo-800">
-                  PRO
-                </span>
-              </div>
+
 
               {/* Dummy Host App Content */}
               <div className="space-y-2 py-2 opacity-25">

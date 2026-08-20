@@ -32,7 +32,7 @@ export default function App() {
   };
 
   return (
-    <div class="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col font-sans">
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 flex flex-col font-sans">
       {/* Top Header Navigation */}
       <Header
         config={config}
@@ -42,41 +42,41 @@ export default function App() {
       />
 
       {/* Main Studio Workspace Grid */}
-      <main class="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-6 grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+      <main className="flex-1 max-w-7xl w-full mx-auto p-3 sm:p-5 grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
         {/* Left Side Panel: Content & Styling Editors (7 cols) */}
-        <section class="lg:col-span-7 flex flex-col bg-zinc-900/70 rounded-3xl border border-zinc-800/80 backdrop-blur-lg overflow-hidden shadow-xl lg:h-[780px]">
+        <section className="lg:col-span-7 flex flex-col bg-zinc-900/70 rounded-3xl border border-zinc-800/80 backdrop-blur-lg overflow-hidden shadow-xl lg:h-[calc(100vh-100px)]">
           {/* Main Tab Navigation Header */}
-          <div class="flex items-center justify-between p-3 sm:p-4 bg-zinc-900/90 border-b border-zinc-800 shrink-0">
-            <div class="flex items-center gap-2 bg-zinc-950 p-1.5 rounded-2xl border border-zinc-800/90 w-full sm:w-auto">
+          <div className="flex items-center justify-between p-3 sm:p-4 bg-zinc-900/90 border-b border-zinc-800 shrink-0">
+            <div className="flex items-center gap-2 bg-zinc-950 p-1.5 rounded-2xl border border-zinc-800/90 w-full sm:w-auto">
               <button
                 type="button"
                 onClick={() => setActiveTab('content')}
-                class={`flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 ${
+                className={`flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 ${
                   activeTab === 'content'
                     ? 'bg-gradient-to-r from-indigo-600 to-indigo-500 text-white shadow-lg shadow-indigo-600/30'
                     : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900'
                 }`}
               >
-                <FileText class="w-4 h-4" />
+                <FileText className="w-4 h-4" />
                 1. Content Page
               </button>
               <button
                 type="button"
                 onClick={() => setActiveTab('styling')}
-                class={`flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 ${
+                className={`flex-1 sm:flex-initial px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2 ${
                   activeTab === 'styling'
                     ? 'bg-gradient-to-r from-indigo-600 to-indigo-500 text-white shadow-lg shadow-indigo-600/30'
                     : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900'
                 }`}
               >
-                <Palette class="w-4 h-4" />
+                <Palette className="w-4 h-4" />
                 2. Styling Page
               </button>
             </div>
           </div>
 
-          {/* Editor Form Body - Fills exact remaining height and scrolls */}
-          <div class="flex-1 p-4 sm:p-6 overflow-y-auto">
+          {/* Editor Form Body */}
+          <div className="flex-1 p-4 sm:p-5 overflow-y-auto">
             {activeTab === 'content' ? (
               <ContentEditor
                 content={config.content}
@@ -94,18 +94,18 @@ export default function App() {
         </section>
 
         {/* Right Side Panel: Live Mobile Device Preview (5 cols) */}
-        <section class="lg:col-span-5 flex flex-col bg-zinc-900/70 rounded-3xl border border-zinc-800/80 backdrop-blur-lg p-4 sm:p-6 items-center shadow-2xl lg:h-[780px] lg:sticky lg:top-20">
-          <div class="w-full flex items-center justify-between pb-3 mb-2 border-b border-zinc-800/80 shrink-0">
-            <h2 class="font-bold text-zinc-100 text-sm flex items-center gap-2">
-              <Eye class="w-4 h-4 text-indigo-400" />
+        <section className="lg:col-span-5 flex flex-col bg-zinc-900/70 rounded-3xl border border-zinc-800/80 backdrop-blur-lg p-4 sm:p-5 items-center shadow-2xl lg:h-[calc(100vh-100px)] lg:sticky lg:top-20 overflow-y-auto">
+          <div className="w-full flex items-center justify-between pb-2.5 mb-1 border-b border-zinc-800/80 shrink-0">
+            <h2 className="font-bold text-zinc-100 text-sm flex items-center gap-2">
+              <Eye className="w-4 h-4 text-indigo-400" />
               Live Mobile Preview
             </h2>
-            <span class="text-[11px] text-emerald-400 font-semibold bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-800/80 animate-pulse">
+            <span className="text-[11px] text-emerald-400 font-semibold bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-800/80 animate-pulse">
               ● Sync Active
             </span>
           </div>
 
-          <div class="w-full flex-1 flex flex-col justify-between overflow-hidden">
+          <div className="w-full flex-1 flex flex-col justify-between">
             <MobilePreview
               content={config.content}
               styling={config.styling}

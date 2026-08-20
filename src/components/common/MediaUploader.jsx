@@ -31,17 +31,17 @@ export default function MediaUploader({ value, mediaType, onChange }) {
   };
 
   return (
-    <div class="space-y-3 bg-[#09090b] p-3.5 rounded-xl border border-zinc-800">
-      <div class="flex items-center justify-between">
-        <label class="text-xs font-semibold text-zinc-200 flex items-center gap-1.5">
-          <ImageIcon class="w-3.5 h-3.5 text-indigo-400" />
+    <div className="space-y-3 bg-zinc-950/80 p-3.5 rounded-xl border border-zinc-800">
+      <div className="flex items-center justify-between">
+        <label className="text-xs font-semibold text-zinc-200 flex items-center gap-1.5">
+          <ImageIcon className="w-3.5 h-3.5 text-indigo-400" />
           Thank You Screen Media
         </label>
-        <div class="flex bg-[#121215] p-0.5 rounded-lg border border-zinc-800 text-[11px]">
+        <div className="flex bg-zinc-900 p-0.5 rounded-lg border border-zinc-800 text-[11px]">
           <button
             type="button"
             onClick={() => setActiveTab('presets')}
-            class={`px-2.5 py-1 rounded-md transition-all ${
+            className={`px-2 py-1 rounded-md transition-colors ${
               activeTab === 'presets' ? 'bg-indigo-600 text-white font-medium shadow' : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
@@ -50,7 +50,7 @@ export default function MediaUploader({ value, mediaType, onChange }) {
           <button
             type="button"
             onClick={() => setActiveTab('upload')}
-            class={`px-2.5 py-1 rounded-md transition-all ${
+            className={`px-2 py-1 rounded-md transition-colors ${
               activeTab === 'upload' ? 'bg-indigo-600 text-white font-medium shadow' : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
@@ -59,7 +59,7 @@ export default function MediaUploader({ value, mediaType, onChange }) {
           <button
             type="button"
             onClick={() => setActiveTab('url')}
-            class={`px-2.5 py-1 rounded-md transition-all ${
+            className={`px-2 py-1 rounded-md transition-colors ${
               activeTab === 'url' ? 'bg-indigo-600 text-white font-medium shadow' : 'text-zinc-400 hover:text-zinc-200'
             }`}
           >
@@ -68,9 +68,9 @@ export default function MediaUploader({ value, mediaType, onChange }) {
         </div>
       </div>
 
-      {/* Presets Grid */}
+      {/* Preset Grid */}
       {activeTab === 'presets' && (
-        <div class="grid grid-cols-4 gap-2 pt-1">
+        <div className="grid grid-cols-4 gap-2 pt-1">
           {PRESET_MEDIA.map((item) => {
             const isSelected = value === item.url;
             return (
@@ -78,21 +78,21 @@ export default function MediaUploader({ value, mediaType, onChange }) {
                 key={item.id}
                 type="button"
                 onClick={() => onChange(item.url, item.type)}
-                class={`group relative h-16 rounded-xl overflow-hidden border transition-all ${
+                className={`group relative h-16 rounded-xl overflow-hidden border transition-all ${
                   isSelected
                     ? 'border-indigo-500 ring-2 ring-indigo-500/40 scale-[1.02]'
                     : 'border-zinc-800 hover:border-zinc-700 hover:scale-[1.01]'
                 }`}
               >
-                <img src={item.url} alt={item.name} class="w-full h-full object-cover" />
-                <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-end p-1">
-                  <span class="text-[10px] text-white font-medium truncate w-full drop-shadow">
+                <img src={item.url} alt={item.name} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-zinc-950/40 group-hover:bg-zinc-950/20 transition-colors flex items-end p-1">
+                  <span className="text-[10px] text-white font-medium truncate w-full drop-shadow">
                     {item.name}
                   </span>
                 </div>
                 {isSelected && (
-                  <div class="absolute top-1 right-1 bg-indigo-600 text-white rounded-full p-0.5 shadow">
-                    <Check class="w-2.5 h-2.5" />
+                  <div className="absolute top-1 right-1 bg-indigo-600 text-white rounded-full p-0.5 shadow">
+                    <Check className="w-2.5 h-2.5" />
                   </div>
                 )}
               </button>
@@ -103,14 +103,14 @@ export default function MediaUploader({ value, mediaType, onChange }) {
 
       {/* File Upload Tab */}
       {activeTab === 'upload' && (
-        <div class="pt-1">
-          <label class="flex flex-col items-center justify-center w-full h-24 border-2 border-dashed border-zinc-800 hover:border-indigo-500/80 rounded-xl cursor-pointer bg-[#121215] hover:bg-indigo-950/20 transition-colors group">
-            <div class="flex flex-col items-center justify-center text-center px-4">
-              <Upload class="w-5 h-5 text-zinc-400 group-hover:text-indigo-400 mb-1 transition-colors" />
-              <p class="text-xs font-medium text-zinc-300">
+        <div className="pt-1">
+          <label className="flex flex-col items-center justify-center w-full h-24 border-2 border-dashed border-zinc-700 hover:border-indigo-500 rounded-xl cursor-pointer bg-zinc-900/50 hover:bg-indigo-950/20 transition-colors group">
+            <div className="flex flex-col items-center justify-center text-center px-4">
+              <Upload className="w-6 h-6 text-zinc-400 group-hover:text-indigo-400 mb-1 transition-colors" />
+              <p className="text-xs font-medium text-zinc-300">
                 Click or drag & drop media file
               </p>
-              <p class="text-[10px] text-zinc-500 mt-0.5">
+              <p className="text-[10px] text-zinc-500 mt-0.5">
                 PNG, JPG, JPEG, GIF, Lottie JSON
               </p>
             </div>
@@ -118,7 +118,7 @@ export default function MediaUploader({ value, mediaType, onChange }) {
               type="file"
               accept="image/png, image/jpeg, image/jpg, image/gif, application/json"
               onChange={handleFileUpload}
-              class="hidden"
+              className="hidden"
             />
           </label>
         </div>
@@ -126,22 +126,22 @@ export default function MediaUploader({ value, mediaType, onChange }) {
 
       {/* URL Input Tab */}
       {activeTab === 'url' && (
-        <div class="space-y-2 pt-1">
-          <div class="flex gap-2">
-            <div class="relative flex-1">
+        <div className="space-y-2 pt-1">
+          <div className="flex gap-2">
+            <div className="relative flex-1">
               <input
                 type="text"
                 value={customUrl}
                 onChange={(e) => setCustomUrl(e.target.value)}
                 placeholder="https://example.com/image.png"
-                class="w-full bg-[#121215] border border-zinc-800 rounded-lg pl-8 pr-2.5 py-1.5 text-xs text-zinc-200 focus:outline-none focus:border-indigo-500"
+                className="w-full bg-zinc-900 border border-zinc-800 rounded-lg pl-8 pr-2.5 py-1.5 text-xs text-zinc-200 focus:outline-none focus:border-indigo-500"
               />
-              <LinkIcon class="w-3.5 h-3.5 text-zinc-500 absolute left-2.5 top-2.5" />
+              <LinkIcon className="w-3.5 h-3.5 text-zinc-500 absolute left-2.5 top-2.5" />
             </div>
             <button
               type="button"
               onClick={handleUrlApply}
-              class="bg-indigo-600 hover:bg-indigo-500 text-white text-xs px-3 py-1.5 rounded-lg font-medium transition-colors shadow-sm"
+              className="bg-indigo-600 hover:bg-indigo-500 text-white text-xs px-3 py-1.5 rounded-lg font-medium transition-colors"
             >
               Apply
             </button>
@@ -149,15 +149,15 @@ export default function MediaUploader({ value, mediaType, onChange }) {
         </div>
       )}
 
-      {/* Selected Media Preview */}
+      {/* Selected Media Preview Badge */}
       {value && (
-        <div class="flex items-center gap-2.5 pt-2 border-t border-zinc-800/80">
-          <div class="w-8 h-8 rounded-lg bg-[#121215] overflow-hidden border border-zinc-800 shrink-0">
-            <img src={value} alt="Preview" class="w-full h-full object-cover" />
+        <div className="flex items-center gap-2 pt-1 border-t border-zinc-800/80">
+          <div className="w-8 h-8 rounded bg-zinc-900 overflow-hidden border border-zinc-800 shrink-0">
+            <img src={value} alt="Preview" className="w-full h-full object-cover" />
           </div>
-          <div class="flex-1 min-w-0">
-            <p class="text-[11px] text-zinc-300 font-mono truncate">{value}</p>
-            <span class="inline-block text-[10px] uppercase font-semibold text-indigo-400 bg-indigo-500/10 px-1.5 py-0.2 rounded border border-indigo-500/20">
+          <div className="flex-1 min-w-0">
+            <p className="text-[11px] text-zinc-300 font-mono truncate">{value}</p>
+            <span className="inline-block text-[10px] uppercase font-semibold text-indigo-400 bg-indigo-950/80 px-1.5 py-0.2 rounded border border-indigo-900">
               {mediaType || 'image'}
             </span>
           </div>

@@ -4,17 +4,17 @@ export default function InitialStep({ content, styling, onNext }) {
   const { initialPage } = content;
 
   return (
-    <div class="flex flex-col items-center text-center p-6 space-y-5">
+    <div className="flex flex-col items-center text-center p-6 space-y-5">
       {/* Decorative Icon Badge */}
       <div
         style={{
           backgroundColor: `${styling.buttonColor}15`,
           borderColor: `${styling.buttonColor}30`
         }}
-        class="w-14 h-14 rounded-2xl border flex items-center justify-center shadow-inner mb-1 transition-all"
+        className="w-14 h-14 rounded-2xl border flex items-center justify-center shadow-inner mb-1 transition-all"
       >
         <svg
-          class="w-7 h-7 transition-all"
+          className="w-7 h-7 transition-all"
           style={{ color: styling.buttonColor }}
           fill="none"
           stroke="currentColor"
@@ -29,14 +29,14 @@ export default function InitialStep({ content, styling, onNext }) {
         </svg>
       </div>
 
-      <div class="space-y-2 max-w-xs">
+      <div className="space-y-2 max-w-xs">
         <h2
           style={{
             color: styling.titleColor,
             fontSize: `${styling.titleFontSize}px`,
             fontWeight: styling.fontWeight
           }}
-          class="leading-tight transition-all"
+          className="leading-tight transition-all"
         >
           {initialPage.title || 'We value your feedback!'}
         </h2>
@@ -45,13 +45,13 @@ export default function InitialStep({ content, styling, onNext }) {
             color: styling.subtitleColor,
             fontSize: `${styling.subtitleFontSize}px`
           }}
-          class="leading-relaxed transition-all"
+          className="leading-relaxed transition-all"
         >
           {initialPage.subtitle || 'Help us improve by sharing your quick thoughts.'}
         </p>
       </div>
 
-      <div class="w-full pt-2">
+      <div className="w-full pt-2">
         <button
           type="button"
           onClick={onNext}
@@ -64,7 +64,7 @@ export default function InitialStep({ content, styling, onNext }) {
             paddingLeft: styling.buttonWidth === 'auto' ? '24px' : '0px',
             paddingRight: styling.buttonWidth === 'auto' ? '24px' : '0px'
           }}
-          class="font-semibold text-xs transition-all hover:brightness-110 active:scale-[0.98] shadow-md flex items-center justify-center mx-auto"
+          className="font-semibold text-xs transition-all hover:brightness-110 active:scale-[0.98] shadow-md flex items-center justify-center mx-auto"
         >
           {initialPage.buttonText || 'Give Feedback'}
         </button>

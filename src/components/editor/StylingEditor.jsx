@@ -9,15 +9,15 @@ export default function StylingEditor({ styling, onChange }) {
   };
 
   return (
-    <div class="space-y-6 pb-6">
+    <div className="space-y-6 pb-6">
       {/* 1. Color Palette Section */}
-      <div class="bg-zinc-900/80 border border-zinc-800/90 rounded-2xl p-4 space-y-4 shadow-sm hover:border-zinc-700/80 transition-colors">
-        <div class="flex items-center gap-2 border-b border-zinc-800 pb-3">
-          <Palette class="w-4 h-4 text-indigo-400" />
-          <h3 class="font-semibold text-zinc-100 text-sm">Colors & Themes</h3>
+      <div className="bg-zinc-900/80 border border-zinc-800/90 rounded-2xl p-4 space-y-4 shadow-sm hover:border-zinc-700/80 transition-colors">
+        <div className="flex items-center gap-2 border-b border-zinc-800 pb-3">
+          <Palette className="w-4 h-4 text-indigo-400" />
+          <h3 className="font-semibold text-zinc-100 text-sm">Colors & Themes</h3>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <ColorPicker
             label="Background Color"
             value={styling.bgColor}
@@ -56,13 +56,13 @@ export default function StylingEditor({ styling, onChange }) {
       </div>
 
       {/* 2. Rating Colors */}
-      <div class="bg-zinc-900/80 border border-zinc-800/90 rounded-2xl p-4 space-y-4 shadow-sm hover:border-zinc-700/80 transition-colors">
-        <div class="flex items-center gap-2 border-b border-zinc-800 pb-3">
-          <Star class="w-4 h-4 text-amber-400" />
-          <h3 class="font-semibold text-zinc-100 text-sm">Rating Colors</h3>
+      <div className="bg-zinc-900/80 border border-zinc-800/90 rounded-2xl p-4 space-y-4 shadow-sm hover:border-zinc-700/80 transition-colors">
+        <div className="flex items-center gap-2 border-b border-zinc-800 pb-3">
+          <Star className="w-4 h-4 text-amber-400" />
+          <h3 className="font-semibold text-zinc-100 text-sm">Rating Colors</h3>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <ColorPicker
             label="Selected Rating Color"
             value={styling.ratingSelectedColor}
@@ -80,13 +80,13 @@ export default function StylingEditor({ styling, onChange }) {
       </div>
 
       {/* 3. Typography (Font Size & Weight) */}
-      <div class="bg-zinc-900/80 border border-zinc-800/90 rounded-2xl p-4 space-y-4 shadow-sm hover:border-zinc-700/80 transition-colors">
-        <div class="flex items-center gap-2 border-b border-zinc-800 pb-3">
-          <Type class="w-4 h-4 text-indigo-400" />
-          <h3 class="font-semibold text-zinc-100 text-sm">Typography (Font Size & Weight)</h3>
+      <div className="bg-zinc-900/80 border border-zinc-800/90 rounded-2xl p-4 space-y-4 shadow-sm hover:border-zinc-700/80 transition-colors">
+        <div className="flex items-center gap-2 border-b border-zinc-800 pb-3">
+          <Type className="w-4 h-4 text-indigo-400" />
+          <h3 className="font-semibold text-zinc-100 text-sm">Typography (Font Size & Weight)</h3>
         </div>
 
-        <div class="space-y-4">
+        <div className="space-y-4">
           <SliderControl
             label="Title Font Size"
             value={styling.titleFontSize}
@@ -107,12 +107,12 @@ export default function StylingEditor({ styling, onChange }) {
             unit="px"
           />
 
-          <div class="space-y-1.5">
-            <div class="flex justify-between text-xs font-medium text-zinc-300">
+          <div className="space-y-1.5">
+            <div className="flex justify-between text-xs font-medium text-zinc-300">
               <span>Font Weight</span>
-              <span class="text-indigo-400 font-mono font-semibold">{styling.fontWeight}</span>
+              <span className="text-indigo-400 font-mono font-semibold">{styling.fontWeight}</span>
             </div>
-            <div class="grid grid-cols-4 gap-2">
+            <div className="grid grid-cols-4 gap-2">
               {[
                 { weight: '400', label: 'Regular' },
                 { weight: '500', label: 'Medium' },
@@ -123,7 +123,7 @@ export default function StylingEditor({ styling, onChange }) {
                   key={fw.weight}
                   type="button"
                   onClick={() => updateStyle('fontWeight', fw.weight)}
-                  class={`py-2 px-2 rounded-xl text-xs border font-semibold transition-all ${
+                  className={`py-2 px-2 rounded-xl text-xs border font-semibold transition-all ${
                     styling.fontWeight === fw.weight
                       ? 'bg-indigo-600 border-indigo-500 text-white shadow-sm'
                       : 'bg-zinc-950 border-zinc-800 text-zinc-400 hover:text-zinc-200'
@@ -138,13 +138,13 @@ export default function StylingEditor({ styling, onChange }) {
       </div>
 
       {/* 4. Layout & Dimensions (Border Radius, Button Width & Height) */}
-      <div class="bg-zinc-900/80 border border-zinc-800/90 rounded-2xl p-4 space-y-4 shadow-sm hover:border-zinc-700/80 transition-colors">
-        <div class="flex items-center gap-2 border-b border-zinc-800 pb-3">
-          <Layout class="w-4 h-4 text-indigo-400" />
-          <h3 class="font-semibold text-zinc-100 text-sm">Layout & Dimensions</h3>
+      <div className="bg-zinc-900/80 border border-zinc-800/90 rounded-2xl p-4 space-y-4 shadow-sm hover:border-zinc-700/80 transition-colors">
+        <div className="flex items-center gap-2 border-b border-zinc-800 pb-3">
+          <Layout className="w-4 h-4 text-indigo-400" />
+          <h3 className="font-semibold text-zinc-100 text-sm">Layout & Dimensions</h3>
         </div>
 
-        <div class="space-y-4">
+        <div className="space-y-4">
           <SliderControl
             label="Modal & Card Border Radius"
             value={styling.borderRadius}
@@ -175,13 +175,13 @@ export default function StylingEditor({ styling, onChange }) {
             unit="px"
           />
 
-          <div class="space-y-1.5">
-            <label class="text-xs font-medium text-zinc-300">Button Width Mode</label>
-            <div class="grid grid-cols-2 gap-2">
+          <div className="space-y-1.5">
+            <label className="text-xs font-medium text-zinc-300">Button Width Mode</label>
+            <div className="grid grid-cols-2 gap-2">
               <button
                 type="button"
                 onClick={() => updateStyle('buttonWidth', 'full')}
-                class={`py-2 px-3 rounded-xl text-xs font-medium border transition-all ${
+                className={`py-2 px-3 rounded-xl text-xs font-medium border transition-all ${
                   styling.buttonWidth === 'full'
                     ? 'bg-indigo-600 border-indigo-500 text-white shadow-sm'
                     : 'bg-zinc-950 border-zinc-800 text-zinc-400 hover:text-zinc-200'
@@ -192,7 +192,7 @@ export default function StylingEditor({ styling, onChange }) {
               <button
                 type="button"
                 onClick={() => updateStyle('buttonWidth', 'auto')}
-                class={`py-2 px-3 rounded-xl text-xs font-medium border transition-all ${
+                className={`py-2 px-3 rounded-xl text-xs font-medium border transition-all ${
                   styling.buttonWidth === 'auto'
                     ? 'bg-indigo-600 border-indigo-500 text-white shadow-sm'
                     : 'bg-zinc-950 border-zinc-800 text-zinc-400 hover:text-zinc-200'
